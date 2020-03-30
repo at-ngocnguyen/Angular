@@ -1,0 +1,36 @@
+<form class="container" #signInForm="ngForm" (ngSubmit)="signIn(signInForm)">
+  <div class="form-group">
+    <label for="inputFullName">Full Name</label>
+    <input type="text" class="form-control" #name="ngModel" id="inputFull Name" placeholder="Input your name"
+      [(ngModel)]="fullname">
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">Email</label>
+      <input type="email" class="form-control" #mail="ngModel" id="inputEmail4" [(ngModel)]="email"
+        placeholder="Email">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Password</label>
+      <input type="password" class="form-control" #pass="ngModel" id="inputPassword4" [(ngModel)]="password"
+        placeholder="Password">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="inputStreet">Street</label>
+      <input type="text" class="form-control" #stree="ngModel" [(ngModel)]="street" placeholder="Street"
+        id="inputStreet">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputCity">City</label>
+      <input type="text" class="form-control" #ci="ngModel" [(ngModel)]="city" placeholder="City" id="inputCity">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputCountry">Country</label>
+      <input type="text" class="form-control" #count="ngModel" [(ngModel)]="country" placeholder="Country"
+        id="inputCountry">
+    </div>
+  </div>
+  <button class="btn btn-primary">Sign In</button>
+</form>
