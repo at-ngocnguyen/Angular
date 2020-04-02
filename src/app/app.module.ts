@@ -8,6 +8,8 @@ import { HeaderComponent } from './component/header/header.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { ReactiveComponent } from './component/form/reactive_form/reactive/reactive.component';
 import { TemplateComponent } from './component/form/template_form/template/template.component';
+import { HomeComponent } from './component/page/home/home.component';
+import { NewsComponent } from './component/page/news/news.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { TemplateComponent } from './component/form/template_form/template/templ
     HeaderComponent,
     FooterComponent,
     ReactiveComponent,
-    TemplateComponent
+    TemplateComponent,
+    HomeComponent,
+    NewsComponent,
   ],
   imports: [
     BrowserModule,

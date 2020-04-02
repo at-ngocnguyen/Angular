@@ -36,9 +36,11 @@ export class ReactiveComponent implements OnInit {
   get skills() {
     return this.register.get('skills') as FormArray;
   }
+  
   get fullname() {
     return this.register.get('fullname');
   }
+
   get email() {
     return this.register.get('email');
   }
