@@ -1,9 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AppComponent } from './app.component';
 import { HomeComponent } from './component/page/home/home.component';
 import { NewsComponent } from './component/page/news/news.component';
 import { ReactiveComponent } from './component/form/reactive_form/reactive/reactive.component';
+import { LoginComponent } from './component/page/login/login.component';
+import { UserComponent } from './component/user/user.component';
+import { ClientGuard } from './component/user/clientguard.guard';
+import { DashboardComponent } from './component/user/dashboard/dashboard.component';
+import { ProfileComponent } from './component/user/profile/profile.component';
+import { ClientResolver } from './component/user/profile/profile.resolve';
 
 
 const routes: Routes = [
@@ -11,6 +16,19 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'news', component: NewsComponent },
   { path: 'registration', component: ReactiveComponent },
+  { path: 'login', component: LoginComponent },
+  {
+    path: 'user', component: UserComponent, canActivate: [ClientGuard], canActivateChild: [ClientGuard],
+    children: [
+      { path: 'dashboard', component: DashboardComponent },
+      {
+        path: 'profile', component: ProfileComponent,
+        resolve: {
+          data: ClientResolver
+        }
+      },
+    ]
+  },
 ];
 
 @NgModule({
