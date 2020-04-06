@@ -9,6 +9,7 @@ import { ClientGuard } from './component/user/clientguard.guard';
 import { DashboardComponent } from './component/user/dashboard/dashboard.component';
 import { ProfileComponent } from './component/user/profile/profile.component';
 import { ClientResolver } from './component/user/profile/profile.resolve';
+import { ProfileCanDeactivate } from './component/user/profile/profile.candeactive';
 
 
 const routes: Routes = [
@@ -23,6 +24,7 @@ const routes: Routes = [
       { path: 'dashboard', component: DashboardComponent },
       {
         path: 'profile', component: ProfileComponent,
+        canDeactivate:[ProfileCanDeactivate],
         resolve: {
           data: ClientResolver
         }

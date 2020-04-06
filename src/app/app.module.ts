@@ -14,6 +14,8 @@ import { LoginComponent } from './component/page/login/login.component';
 import { UserComponent } from './component/user/user.component';
 import { DashboardComponent } from './component/user/dashboard/dashboard.component';
 import { ProfileComponent } from './component/user/profile/profile.component';
+import { ProfileCanDeactivate } from './component/user/profile/profile.candeactive';
+import { ClientGuard } from './component/user/clientguard.guard';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,7 @@ import { ProfileComponent } from './component/user/profile/profile.component';
     AppRoutingModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [ProfileCanDeactivate, ClientGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
