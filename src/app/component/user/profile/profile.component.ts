@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  isTyping = false;
+
+  constructor(private activeRouter: ActivatedRoute) { }
 
   ngOnInit(): void {
+    console.log(this.activeRouter.snapshot.data);
   }
 
+  checkType() {
+    this.isTyping = true;
+  }
 }
