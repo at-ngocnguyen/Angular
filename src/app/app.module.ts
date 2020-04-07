@@ -16,6 +16,9 @@ import { DashboardComponent } from './component/user/dashboard/dashboard.compone
 import { ProfileComponent } from './component/user/profile/profile.component';
 import { ProfileCanDeactivate } from './component/user/profile/profile.candeactive';
 import { ClientGuard } from './component/user/clientguard.guard';
+import { ApiService } from './share/service/api.service';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { JwtInterceptor } from './interceptor/jwt.interceptor';
 
 @NgModule({
   declarations: [
@@ -36,9 +39,16 @@ import { ClientGuard } from './component/user/clientguard.guard';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
+    HttpClientModule,
     ReactiveFormsModule,
   ],
-  providers: [ProfileCanDeactivate, ClientGuard],
+  providers:
+    [
+      ProfileCanDeactivate,
+      ClientGuard,
+      ApiService,
+      { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
